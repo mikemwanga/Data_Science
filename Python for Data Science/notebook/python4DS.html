@@ -14259,18 +14259,8 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Python-for-Data-Science">Python for Data Science<a class="anchor-link" href="#Python-for-Data-Science">&#182;</a></h1><p>Exercise to analyse, visualize and present gapminde dataset.</p>
+<h1 id="Python-for-Data-Science">Python for Data Science<a class="anchor-link" href="#Python-for-Data-Science">&#182;</a></h1><p>Exercise to analyse, visualize and present gapminder dataset.</p>
 <h2 id="Instructions">Instructions<a class="anchor-link" href="#Instructions">&#182;</a></h2><p>To complete the miniproject, create an analysis in jupyter-notebook which does the following:</p>
-<p>Read in the gapminder_clean.csv data as a pandas DataFrame.</p>
-<p>Filter the data to include only rows where Year is 1962 and then make a scatter plot comparing <code>CO2 emissions (metric tons per capita)</code> and <code>gdpPercap for the filtered data</code>.</p>
-<p>On the filtered data, calculate the pearson correlation of 'CO2 emissions (metric tons per capita)' and gdpPercap. What is the Pearson R value and associated p value?</p>
-<p>On the unfiltered data, answer "In what year is the correlation between 'CO2 emissions (metric tons per capita)' and gdpPercap the strongest?" Filter the dataset to that year for the next step...</p>
-<p>Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap, where the point size is determined by pop (population) and the color is determined by the continent.</p>
-<p>Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:</p>
-<p>What is the relationship between continent and 'Energy use (kg of oil equivalent per capita)'? (Stats test needed)
-Is there a significant difference between Europe and Asia with respect to 'Imports of goods and services (% of GDP)' in the years after 1990? (Stats test needed)</p>
-<p>What is the country (or countries) that has the highest 'Population density (people per sq. km of land area)' across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)</p>
-<p>What country (or countries) has shown the greatest increase in 'Life expectancy at birth, total (years)' since 1962?</p>
 <p>For each question, you should generate summary visualizations (preferrably interactive ones) that demonstrate your answer to each question.</p>
 <p>Additionally, the analysis must be user-friendly for a non-programmer and should intuitively convey the insights you uncovered. Use markdown to ensure that the text is organized and readable. The notebook should also be friendly for a non-programmer to read.</p>
 <p>All code should be commited using git and pushed to your fork of the training repo on GitHub. Once you are done, let Henry know and he will check your notebook.</p>
@@ -14280,6 +14270,11 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Load-libraries">Load libraries<a class="anchor-link" href="#Load-libraries">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="The-below-libraries-and-modules-will-be-used-in-this-exercise.-Use-pip-to-install-and-load-them">The below libraries and modules will be used in this exercise. Use pip to install and load them<a class="anchor-link" href="#The-below-libraries-and-modules-will-be-used-in-this-exercise.-Use-pip-to-install-and-load-them">&#182;</a></h2>
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -14304,7 +14299,7 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Load data and filter rows containing only <code>1962</code></p>
+<p>Read in the gapminder dataset using pandas library.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14314,10 +14309,7 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/gapminder_clean.csv&quot;</span><span class="p">)</span>
-
-<span class="n">my_data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1962</span><span class="p">]</span> 
-
-<span class="n">my_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">my_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1">#view the first lines of the dataset</span>
 </pre></div>
 
      </div>
@@ -14508,21 +14500,17 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">Scatter plot of the global <code>CO2 emissions</code> and <code>GDPperCap</code> in 1962.<a class="anchor-link" href="#Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">&#182;</a></h2>
+<h2 id="Question-1">Question 1<a class="anchor-link" href="#Question-1">&#182;</a></h2><p>Filter the data to include only rows where Year is 1962 and then make a scatter plot comparing <code>CO2 emissions(metric tons per capita)</code> and <code>gdpPercap for the filtered data</code>.</p>
+
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Extract the columns</span>
-
-<span class="n">data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
-
-<span class="c1">#drop rows with NaNs</span>
-<span class="c1">#pd.isna(data_1962).sum() # 64/259 nas</span>
-<span class="n">data_1962</span> <span class="o">=</span> <span class="n">data_1962</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="o">.</span><span class="n">Year</span> <span class="o">==</span> <span class="mi">1962</span><span class="p">]</span>
+<span class="n">my_data_1962</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14530,18 +14518,207 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Country Name</th>
+      <th>Year</th>
+      <th>Agriculture, value added (% of GDP)</th>
+      <th>CO2 emissions (metric tons per capita)</th>
+      <th>Domestic credit provided by financial sector (% of GDP)</th>
+      <th>Electric power consumption (kWh per capita)</th>
+      <th>Energy use (kg of oil equivalent per capita)</th>
+      <th>Exports of goods and services (% of GDP)</th>
+      <th>Fertility rate, total (births per woman)</th>
+      <th>GDP growth (annual %)</th>
+      <th>Imports of goods and services (% of GDP)</th>
+      <th>Industry, value added (% of GDP)</th>
+      <th>Inflation, GDP deflator (annual %)</th>
+      <th>Life expectancy at birth, total (years)</th>
+      <th>Population density (people per sq. km of land area)</th>
+      <th>Services, etc., value added (% of GDP)</th>
+      <th>pop</th>
+      <th>continent</th>
+      <th>gdpPercap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Afghanistan</td>
+      <td>1962</td>
+      <td>NaN</td>
+      <td>0.073781</td>
+      <td>21.276422</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.878051</td>
+      <td>7.450</td>
+      <td>NaN</td>
+      <td>9.349593</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>33.219902</td>
+      <td>14.312061</td>
+      <td>NaN</td>
+      <td>10267083.0</td>
+      <td>Asia</td>
+      <td>853.100710</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>Albania</td>
+      <td>1962</td>
+      <td>NaN</td>
+      <td>1.439956</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.282</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.162854</td>
+      <td>62.456898</td>
+      <td>NaN</td>
+      <td>1728137.0</td>
+      <td>Europe</td>
+      <td>2312.888958</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20</td>
+      <td>Algeria</td>
+      <td>1962</td>
+      <td>NaN</td>
+      <td>0.484954</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.793873</td>
+      <td>7.614</td>
+      <td>-19.685042</td>
+      <td>20.818647</td>
+      <td>NaN</td>
+      <td>2.351279</td>
+      <td>47.045000</td>
+      <td>4.908240</td>
+      <td>NaN</td>
+      <td>11000948.0</td>
+      <td>Africa</td>
+      <td>2550.816880</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>30</td>
+      <td>American Samoa</td>
+      <td>1962</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>105.590000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>40</td>
+      <td>Andorra</td>
+      <td>1962</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>32.714894</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">Scatter plot of the global <code>CO2 emissions</code> and <code>GDPperCap</code> in 1962.<a class="anchor-link" href="#Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">&#182;</a></h2>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Plt function from matplotlib</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Extract the attributes</span>
+<span class="n">data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
+<span class="n">data_1962</span> <span class="o">=</span> <span class="n">data_1962</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># drop rows containing missing data</span>
+
+<span class="c1">#Plot function from matplotlib</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">data_1962</span><span class="p">[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data_1962</span><span class="p">[</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">]</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Global CO2 emission vs GDPperCap in 1962&quot;</span><span class="p">)</span>
@@ -14567,7 +14744,7 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 
 
 <div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,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"
+<img src="data:image/png;base64,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AuvMrB94FXCruz/l7keBW4Ed4b417v5Nd3fg0w3HavYcIiIiIiJda6FrzE9z96Hw++PAaeH3jcAPE/sdDNum2n6wyfapnkNEREREpGt1bPJnyHR7J5/DzN5iZvvNbP/hw4fncygiIiIiIlNa6MD8x6EMhfDnE2H7IeCZif02hW1Tbd/UZPtUzzGJu3/M3be5+7ZTTz111iclIiIiInKyFjow/zIQd1a5DPhSYvubQneWFwPHQznKLcArzWx9mPT5SuCWcN8JM3tx6MbypoZjNXsOEREREZGulZmvA5vZ54CXAxvM7CBRd5UPAF8ws8uBR4HXhd1vAi4EHgLGgDcDuPtTZvZ+4Dthv/e5ezyh9G1EnV/6gJvDD1M8h4iIiIhI17KoDFu2bdvm+/fv7/QwRERERGQJM7M73X1bs/u08qeIiIiISBdQYC4iIiIi0gUUmIuIiIiIdAEF5iIiIiIiXWDeurKIiIiIiCyEvYNDDOw7wMGj42xa38eu7ZvZsbW/08OaMQXmIiIiIrJo7R0cYvcNg1TdyWVSDB3Ls/uGQYBFF5yrlEVEREREFq2BfQeoutOTSWFm9GRSVN0Z2Heg00ObMQXmIiIiIrJoHTw6TjZtdduyaePg0fEOjWj2FJiLiIiIyKK1aX0fpUr9gpmlirNpfV+HRjR7CsxFREREZNHatX0zKTOK5SruTrFcJWXGru2bOz20GdPkTxERERFZtOIJnurKIiIiIiLSYTu29i/KQLyRSllERERERLqAAnMRERERkS6gwFxEREREpAsoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESkCygwFxERERHpAgrMRURERES6gAJzEREREZEuoMBcRERERKQLKDAXEREREekCCsxFRERERLqAAnMRERERkS6gwFxEREREpAsoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESkCygwFxERERHpAgrMRURERES6gAJzEREREZEuoMBcRERERKQLKDAXEREREekCCsxFRERERLqAAnMRERERkS6gwFxEREREpAsoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESkCygwFxERERHpAplOD0BEREREZKHsHRxiYN8BDh4dZ9P6PnZt38yOrf2dHhagwFxERERElom9g0PsvmGQqju5TIqhY3l23zAI0BXBeUdKWczsv5vZ98xs0Mw+Z2Y5MzvbzL5lZg+Z2efNrCfs2xtuPxTuPytxnHeF7Q+a2asS23eEbQ+Z2RUdOEURERER6TID+w5Qdacnk8LM6MmkqLozsO9Ap4cGdCAwN7ONwO8B29x9K5AGXg/8OfDX7v5s4ChweXjI5cDRsP2vw36Y2ZbwuJ8EdgB/Z2ZpM0sDHwZ2AluAN4R9RURERGQZO3h0nGza6rZl08bBo+MdGlG9Tk3+zAB9ZpYBVgBDwCuAPeH+a4HXht9fE24T7t9uZha2X+/uBXd/GHgIOC/8POTuP3D3InB92FdERERElrFN6/soVbxuW6nibFrf16ER1VvwwNzdDwF/CTxGFJAfB+4Ejrl7Oex2ENgYft8I/DA8thz2PyW5veExrbZPYmZvMbP9Zrb/8OHDJ39yIiIiItK1dm3fTMqMYrmKu1MsV0mZsWv75k4PDehMKct6ogz22cDpwEqiUpQF5+4fc/dt7r7t1FNP7cQQRERERGSB7Njaz9UXb6V/XY58uUr/uhxXX7y1KyZ+Qme6svw88LC7HwYwsxuAlwHrzCwTsuKbgENh/0PAM4GDofRlLfBkYnss+ZhW20VERERkGduxtb9rAvFGnagxfwx4sZmtCLXi24H7gX8FLgn7XAZ8Kfz+5XCbcP9X3d3D9teHri1nA5uBbwPfATaHLi89RBNEv7wA5yUiIiIiMmsLnjF392+Z2R7gLqAMfBf4GPAV4HozuypsuyY85BrgH8zsIeApokAbd/+emX2BKKgvA2939wqAmf0ucAtRx5dPuvv3Fur8RERERERmw6Lks2zbts3379/f6WGIiIiIyBJmZne6+7Zm93WqXaKIiIiIiCQoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESkCygwFxERERHpAgrMRURERES6gAJzEREREZEuoMBcRERERKQLKDAXEREREekCCsxFRERERLqAAnMRERERkS6gwFxEREREpAsoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESkCygwFxERERHpAgrMRURERES6gAJzEREREZEuoMBcRERERKQLKDAXEREREekCCsxFRERERLqAAnMRERERkS6gwFxEREREpAsoMBcRERER6QIKzEVEREREuoACcxERERGRLqDAXERERESk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"
 >
 </div>
 
@@ -14580,15 +14757,16 @@ Is there a significant difference between Europe and Asia with respect to 'Impor
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Pearson-Correlation-of-`CO2-emissions-and-GDP-per-capita.">Pearson Correlation of `CO2 emissions and GDP per capita.<a class="anchor-link" href="#Pearson-Correlation-of-`CO2-emissions-and-GDP-per-capita.">&#182;</a></h2><p>Detemining the pearson R and P values!</p>
+<h2 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">&#182;</a></h2><h3 id="Pearson-Correlation-of-CO2-emissions-and-GDP-per-capita.">Pearson Correlation of <code>CO2 emissions and GDP per capita.</code><a class="anchor-link" href="#Pearson-Correlation-of-CO2-emissions-and-GDP-per-capita.">&#182;</a></h3><p>On the filtered data, calculate the pearson correlation of 'CO2 emissions (metric tons per capita)' and gdpPercap. What is the Pearson R value and associated p value?</p>
+<p>Detemining the pearson R and P values!</p>
 <p>Pearson correlation is the measure of strength of linear association between two variables and is denotated by <em>r</em>. 
-When:
-    <em>r=0</em> - no correlation
-    <em>r&gt;0</em> - positive correlation
-    <em>r&lt;0</em> - negative correlatio</p>
+When: \
+    <em>r=0</em> - no correlation \
+    <em>r&gt;0</em> - positive correlation \
+    <em>r&lt;0</em> - negative correlation</p>
 <p>The <code>pearsonr()</code> from <code>scipy</code> library will be used in here. 
-<code>x</code> is the <code>CO2 emissions</code> and <code>y</code> is <code>GDP per capita</code></p>
-<p>links
+<code>x</code> is the <code>CO2 emissions</code> and <code>y</code> is <code>GDP per capita</code>
+links
 <a href="https://machinelearningmastery.com/how-to-use-correlation-to-understand-the-relationship-between-variables/">correlations</a></p>
 
 </div>
@@ -14598,13 +14776,11 @@ When:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Correlation by dropping all rows with NANs</span>
-
-<span class="n">data</span> <span class="o">=</span> <span class="n">my_data_1962</span><span class="p">[[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">my_data_1962</span><span class="p">[[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span> <span class="c1">#Get the datasets</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1">#drop rows with missing data</span>
 <span class="n">corr</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span>
     <span class="n">data</span><span class="p">[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The pearson&#39;s correlation is&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;and a p-value of&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">pvalue</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The pearson&#39;s correlation is&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s2">&quot;and a p-value of&quot;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">pvalue</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14636,13 +14812,14 @@ When:
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The pearson's correlation is <code>0.926</code> and a p-value of pretty much <code>0</code>. There exists a moderate correlation between <code>C02 emissions</code> and <code>GDP per capita</code></p>
+<p>The pearson's correlation is <code>0.926</code> and a p-value of pretty much <code>0</code>. There exists a strong positive correlation between <code>C02 emissions</code> and <code>GDP per capita</code></p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Comparing-correlation-between-years-CO2-emissions-vs-gdppacap">Comparing correlation between years <code>CO2 emissions vs gdppacap</code><a class="anchor-link" href="#Comparing-correlation-between-years-CO2-emissions-vs-gdppacap">&#182;</a></h2>
+<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">&#182;</a></h2><h3 id="Determine-year-with-maximum-correlation">Determine year with maximum correlation<a class="anchor-link" href="#Determine-year-with-maximum-correlation">&#182;</a></h3><p>On the unfiltered data, answer "In what year is the correlation between 'CO2 emissions (metric tons per capita)' and gdpPercap the strongest?" Filter the dataset to that year for the next step...</p>
+
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
@@ -14653,116 +14830,36 @@ When:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#drop rows with# nans</span>
 <span class="n">data_all</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;pop&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
-<span class="c1">#data_all.head()</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data_all</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="n">df</span>
-</pre></div>
+                    
+<span class="n">data_all</span> <span class="o">=</span> <span class="n">data_all</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>continent</th>
-      <td>1323</td>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>pop</th>
-      <td>1323</td>
-    </tr>
-    <tr>
-      <th>CO2 emissions (metric tons per capita)</th>
-      <td>414</td>
-    </tr>
-    <tr>
-      <th>gdpPercap</th>
-      <td>1323</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_all</span> <span class="o">=</span> <span class="n">data_all</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">period</span> <span class="o">=</span> <span class="n">data_all</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span> <span class="c1">#Get a list of the periods</span>
 
-<span class="c1">#create a dict of each year and respective observations#for year in period:</span>
+<span class="c1">#create a dict of each year and respective observations for year in period:</span>
 <span class="n">df_dict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">period</span><span class="p">:</span>
     <span class="n">df_dict</span><span class="p">[</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_all</span><span class="p">[</span><span class="n">data_all</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
-<span class="n">df_dict</span>
+<span class="c1">#df_dict</span>
+
 <span class="n">xy_dict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#create a dict of year and necessary columns</span>
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">period</span><span class="p">:</span>
    <span class="n">xy_dict</span><span class="p">[</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">year</span><span class="p">][</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">],</span> <span class="n">df_dict</span><span class="p">[</span><span class="n">year</span><span class="p">][</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">]</span>
 
 <span class="n">correlation_data</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#dictionary of the correlation values and years</span>
 <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">xy_dict</span><span class="p">:</span>
-    <span class="c1">#print(len(xy_dict[year][1]), len(xy_dict[year][0]))</span>
     <span class="n">corr</span><span class="p">,</span><span class="n">_</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">xy_dict</span><span class="p">[</span><span class="n">year</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy_dict</span><span class="p">[</span><span class="n">year</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">correlation_data</span><span class="p">[</span><span class="n">year</span><span class="p">]</span> <span class="o">=</span> <span class="n">corr</span>
 
-<span class="n">correlation_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="n">correlation_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span> <span class="c1">#create a table (data frame)</span>
 
+<span class="n">correlation_data_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span><span class="s2">&quot;pearsonr_correlation&quot;</span><span class="p">]</span> <span class="c1">#rename the columns</span>
 
-<span class="n">correlation_data_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span><span class="s2">&quot;pearsonr_correlation&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">correlation_data_df</span><span class="p">)</span>
 
 <span class="c1">#determine year with maximum correlation.</span>
-<span class="n">year_max_corre</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">correlation_data</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
-<span class="n">max_corre</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Year with maximum correlation is&quot;</span><span class="p">,</span> <span class="n">year_max_corre</span><span class="p">,</span> <span class="s2">&quot;with a maximum correlation of ~&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_corre</span><span class="p">))</span>
+<span class="n">year_max_correlation</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">correlation_data</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+<span class="n">max_correlation</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">correlation_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Year with maximum correlation is&quot;</span><span class="p">,</span> <span class="n">year_max_correlation</span><span class="p">,</span> <span class="s2">&quot;with a correlation of ~&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_correlation</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14793,7 +14890,7 @@ When:
 7  1997              0.808140
 8  2002              0.800642
 9  2007              0.720417
- Year with maximum correlation is 1967 with a maximum correlation of ~ 0.94
+ Year with maximum correlation is 1967 with a correlation of ~ 0.94
 </pre>
 </div>
 </div>
@@ -14805,8 +14902,8 @@ When:
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Filter Dataset to the year with highest correlation and create a scatter plot between <code>CO2 emission</code> and <code>gdpPaCap</code></p>
-<p>Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap, where the point size is determined by pop (population) and the color is determined by the continent.</p>
+<h2 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">&#182;</a></h2><p>Filter Dataset to the year with highest correlation and create a scatter plot between <code>CO2 emission</code> and <code>gdpPaCap</code>
+Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap, where the point size is determined by pop (population) and the color is determined by the continent.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14818,14 +14915,14 @@ When:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_1967</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1967</span><span class="p">]</span>
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">data_1967</span><span class="p">[[</span>
     <span class="s2">&quot;pop&quot;</span><span class="p">,</span> <span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
-
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># the data has missing data which we drop here</span>
 
-<span class="c1">#Since the population values are extremely large, we get their log10 forms</span>
+<span class="c1">#Since the population values are extremely large, we get their log10 forms and use that to plot</span>
 
-<span class="n">corr_data</span><span class="p">[</span><span class="s2">&quot;pop_log&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">corr_data</span><span class="p">[[</span><span class="s2">&quot;pop&quot;</span><span class="p">]])</span>
+<span class="c1">#corr_data[&quot;pop_log&quot;] = np.log10(corr_data[[&quot;pop&quot;]])</span>
+<span class="c1">#corr_data.head()</span>
 
-<span class="n">corr_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">corr_data</span>
 </pre></div>
 
      </div>
@@ -14868,7 +14965,6 @@ When:
       <th>continent</th>
       <th>CO2 emissions (metric tons per capita)</th>
       <th>gdpPercap</th>
-      <th>pop_log</th>
     </tr>
   </thead>
   <tbody>
@@ -14878,7 +14974,6 @@ When:
       <td>Asia</td>
       <td>0.123782</td>
       <td>836.197138</td>
-      <td>7.062129</td>
     </tr>
     <tr>
       <th>11</th>
@@ -14886,7 +14981,6 @@ When:
       <td>Europe</td>
       <td>1.363746</td>
       <td>2760.196931</td>
-      <td>6.297555</td>
     </tr>
     <tr>
       <th>21</th>
@@ -14894,7 +14988,6 @@ When:
       <td>Africa</td>
       <td>0.632118</td>
       <td>3246.991771</td>
-      <td>7.105868</td>
     </tr>
     <tr>
       <th>51</th>
@@ -14902,7 +14995,6 @@ When:
       <td>Africa</td>
       <td>0.166659</td>
       <td>5522.776375</td>
-      <td>6.719950</td>
     </tr>
     <tr>
       <th>81</th>
@@ -14910,10 +15002,52 @@ When:
       <td>Americas</td>
       <td>2.858163</td>
       <td>8052.953021</td>
-      <td>7.360484</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2484</th>
+      <td>198712000.0</td>
+      <td>Americas</td>
+      <td>18.598318</td>
+      <td>19530.365570</td>
+    </tr>
+    <tr>
+      <th>2504</th>
+      <td>2748579.0</td>
+      <td>Americas</td>
+      <td>1.776101</td>
+      <td>5444.619620</td>
+    </tr>
+    <tr>
+      <th>2544</th>
+      <td>39463910.0</td>
+      <td>Asia</td>
+      <td>0.574906</td>
+      <td>637.123289</td>
+    </tr>
+    <tr>
+      <th>2588</th>
+      <td>3900000.0</td>
+      <td>Africa</td>
+      <td>1.263628</td>
+      <td>1777.077318</td>
+    </tr>
+    <tr>
+      <th>2598</th>
+      <td>4995432.0</td>
+      <td>Africa</td>
+      <td>1.122961</td>
+      <td>569.795071</td>
     </tr>
   </tbody>
 </table>
+<p>113 rows × 4 columns</p>
 </div>
 </div>
 
@@ -14929,13 +15063,14 @@ When:
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">corr_data</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">corr_data</span><span class="p">,</span> 
                  <span class="n">x</span><span class="o">=</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> 
                  <span class="n">y</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> 
                  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
-                 <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop_log&quot;</span><span class="p">)</span>
+                 <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">25000</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+                 
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -14967,254 +15102,26 @@ When:
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:</p>
-<p>What is the relationship between continent and 'Energy use (kg of oil equivalent per capita)'? (Stats test needed)</p>
+<h2 id="Question-5">Question 5<a class="anchor-link" href="#Question-5">&#182;</a></h2><p>Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:
+What is the relationship between continent and 'Energy use (kg of oil equivalent per capita)'? (Stats test needed)</p>
+<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Plot treads and average consumption by each continent</p>
 
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Relationship between continent vs Energy used.</span>
-<span class="c1">#Calculate mean consumption for each continent</span>
-<span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]]</span>
-<span class="c1">#remove missing data</span>
-<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
-<span class="c1">#Calculate mean consumption for each column</span>
-<span class="n">mean_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">energy_data</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
-    <span class="n">mean</span> <span class="o">=</span> <span class="n">energy_data</span><span class="p">[</span><span class="n">energy_data</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">][</span><span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean_dictionary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span>
-
-<span class="n">mean_dictionary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mean_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
-<span class="n">mean_dictionary_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span><span class="s2">&quot;Average energy consumption (Kg)&quot;</span><span class="p">]</span>
-<span class="c1">#energy_data.to_csv(&quot;average.csv&quot;)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mean_dictionary_df</span><span class="p">,</span>
-               <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Average energy consumption (Kg)&quot;</span><span class="p">,</span>
-               <span class="n">x</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
-               <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
-               <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
-               <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-               <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
-               <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Average Energy consumption by Continent (Kg)&quot;</span>
-               <span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>How about we transpose the dataset</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_data_t</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">energy_data_t</span> <span class="o">=</span> <span class="n">energy_data_t</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">energy_data_t</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>continent</th>
-      <th>Year</th>
-      <th>Africa</th>
-      <th>Americas</th>
-      <th>Asia</th>
-      <th>Europe</th>
-      <th>Oceania</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>5113.073215</td>
-      <td>1003.752254</td>
-      <td>1786.923933</td>
-      <td>2482.218093</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1967</td>
-      <td>NaN</td>
-      <td>6183.556112</td>
-      <td>1720.549744</td>
-      <td>2178.226794</td>
-      <td>2940.750732</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1972</td>
-      <td>624.271781</td>
-      <td>1379.249574</td>
-      <td>1193.863297</td>
-      <td>2852.799023</td>
-      <td>3326.183702</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1977</td>
-      <td>669.655049</td>
-      <td>1458.864502</td>
-      <td>1330.101303</td>
-      <td>3161.455380</td>
-      <td>3863.138379</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1982</td>
-      <td>740.649440</td>
-      <td>1441.674520</td>
-      <td>1624.675685</td>
-      <td>3219.131342</td>
-      <td>3915.230457</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1987</td>
-      <td>736.564835</td>
-      <td>1480.153739</td>
-      <td>1793.860708</td>
-      <td>3593.080919</td>
-      <td>4112.666572</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1992</td>
-      <td>692.362311</td>
-      <td>1558.675537</td>
-      <td>1808.378056</td>
-      <td>3202.796260</td>
-      <td>4383.846070</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1997</td>
-      <td>720.895102</td>
-      <td>1657.638067</td>
-      <td>2264.899455</td>
-      <td>3414.196077</td>
-      <td>4864.178383</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2002</td>
-      <td>709.606764</td>
-      <td>1825.013654</td>
-      <td>2322.226805</td>
-      <td>3575.239271</td>
-      <td>4953.510758</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2007</td>
-      <td>690.342727</td>
-      <td>2141.660257</td>
-      <td>2513.263757</td>
-      <td>3721.313840</td>
-      <td>4961.421051</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">energy_data_t</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">energy_data_t</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="c1">#Lets view the data as time-series</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">energy_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Energy consumption (Kg)&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -15244,20 +15151,259 @@ When:
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Relationship between continent vs Energy used.</span>
+<span class="c1">#Calculate mean consumption for each continent</span>
+
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]]</span>
+<span class="c1">#remove missing data</span>
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1">#Calculate mean consumption for each column</span>
+<span class="n">mean_dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">energy_data</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">energy_data</span><span class="p">[</span><span class="n">energy_data</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">][</span><span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">mean_dictionary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span>
+
+<span class="n">mean_dictionary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">mean_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
+<span class="n">mean_dictionary_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span><span class="s2">&quot;Average energy consumption (Kg)&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">mean_dictionary_df</span><span class="p">,</span>
+               <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Average energy consumption (Kg)&quot;</span><span class="p">,</span>
+               <span class="n">x</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+               <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+               <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+               <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+               <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+               <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Average Energy consumption by Continent (Kg)&quot;</span>
+               <span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Is there a significant difference between Europe and Asia with respect to 'Imports of goods and services (% of GDP)' in the years after 1990? (Stats test needed)</p>
-<p>Approach</p>
-<p>Determine the difference of means of imported goods (t-test). T-test inferes significant difference between the two means</p>
-<p><a href="https://www.investopedia.com/terms/t/t-test.asp">reading from here</a><a href="https://www.statology.org/paired-vs-unpaired-t-test/">here</a> and <a href="https://www.youtube.com/watch?v=CIbJSX-biu0">here</a></p>
-<p>Perform a two sample hypothesis testing. Null Hypothesis will be <em>There is no significant difference on goods and services imported between Asia and Europe</em> i.e means of both groups are the same, (m1=m2).</p>
-<p>Since these samples are unpaired, an independent t-test will suffice. Check for homogeinity of variance between the samples using <a href="https://www.scalestatistics.com/levenes-test.html">levene</a> t-test. Many statistical tools make assumptions that groups do have equal variances, and levenes test allows you to determine whether this assumptoin is true. If p-value is &gt;.05,homogeinity in variance exists (equal variances), else different variances</p>
+<p>Generally, Oceania continent has highest consumption rate which has increased steadly overtime. African continent showed the least energy consumption. Suprisingly, the Americas had the highest consumption rate in the first decade, which declined drastically.</p>
+<h3 id="Perform-ANOVA-test-of-the-means">Perform ANOVA test of the means<a class="anchor-link" href="#Perform-ANOVA-test-of-the-means">&#182;</a></h3><p>Anova results to an F_statistic</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#perform ANOVA test for each one the groups using stats function</span>
+
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]]</span>
+
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">droplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">energy_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">energy_data</span><span class="o">.</span><span class="n">Africa</span><span class="p">,</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">Americas</span><span class="p">,</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">Europe</span><span class="p">,</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">Oceania</span><span class="p">,</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">Asia</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>F_onewayResult(statistic=112.81589721019708, pvalue=1.7277557507344105e-19)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Americas&#39;</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>F_statistic results to  a P-value of 0.001. There exists significant difference in the energy consumption between the continents. \</p>
+<p>But which of the groups is causing this huge difference.</p>
+<p>Following <a href="https://youtu.be/EWYzeZbchR0">this tutorial</a></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cont_pairs</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#create a pair of the continents</span>
+
+<span class="k">for</span> <span class="n">cont1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">cont2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cont1</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">cont_pairs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">cont1</span><span class="p">],</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">cont2</span><span class="p">]))</span>
+
+
+
+<span class="c1">#condut t-test on each pair of continent</span>
+<span class="k">for</span> <span class="n">cont1</span><span class="p">,</span> <span class="n">cont2</span> <span class="ow">in</span> <span class="n">cont_pairs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cont1</span><span class="p">,</span><span class="n">cont2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">energy_data</span><span class="p">[</span><span class="n">cont1</span><span class="p">],</span> <span class="n">energy_data</span><span class="p">[</span><span class="n">cont2</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Africa Americas
+Ttest_indResult(statistic=-10.095518054451242, pvalue=8.302650508548604e-08)
+---------------------
+Africa Asia
+Ttest_indResult(statistic=-6.849792161086915, pvalue=7.936511465962737e-06)
+---------------------
+Africa Europe
+Ttest_indResult(statistic=-25.912928607786142, pvalue=3.1331210345627216e-13)
+---------------------
+Africa Oceania
+Ttest_indResult(statistic=-16.959912428377212, pvalue=9.922525623508251e-11)
+---------------------
+Americas Asia
+Ttest_indResult(statistic=-1.24804520333598, pvalue=0.23248519359596806)
+---------------------
+Americas Europe
+Ttest_indResult(statistic=-12.732090528322205, pvalue=4.357852010764935e-09)
+---------------------
+Americas Oceania
+Ttest_indResult(statistic=-11.642184649782545, pvalue=1.3781358722699321e-08)
+---------------------
+Asia Europe
+Ttest_indResult(statistic=-7.55961742663124, pvalue=2.6304650464260018e-06)
+---------------------
+Asia Oceania
+Ttest_indResult(statistic=-9.018066943377617, pvalue=3.3073646968758266e-07)
+---------------------
+Europe Oceania
+Ttest_indResult(statistic=-4.068879873800833, pvalue=0.0011499852030134776)
+---------------------
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A T_test between the continents indicate presence of <strong>significant difference in Energy consumption</strong> between the continents <strong>except</strong> between the <strong>Americas and Asian</strong> continents which have lower p-value.</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Questation-6">Questation 6<a class="anchor-link" href="#Questation-6">&#182;</a></h2><p>Is there a significant difference between Europe and Asia with respect to 'Imports of goods and services (% of GDP)' in the years after 1990? (Stats test needed)</p>
+<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Determine the difference in means of imported goods (t-test). T-test inferes significant difference between the two means</p>
+<p><a href="https://www.investopedia.com/terms/t/t-test.asp">reading from here</a><a href="https://www.statology.org/paired-vs-unpaired-t-test/">here</a> and <a href="https://www.youtube.com/watch?v=CIbJSX-biu0">here</a></p>
+<p>Perform a two sample hypothesis testing. Null Hypothesis will be <em>There is no significant difference on goods and services imported between Asia and Europe</em> i.e means of both groups are the same, (m1=m2).</p>
+<p>Since these samples are unpaired, an independent t-test will suffice. Check for homogeinity of variance between the samples using <a href="https://www.scalestatistics.com/levenes-test.html">levene</a> t-test. Many statistical tools make assumptions that groups do have equal variances, and levenes test allows you to determine whether this assumptoin is true. If p-value is &gt;.05,homogeinity in variance exists (equal variances), else different variances</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15332,7 +15478,7 @@ When:
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Levene's Test gives a p-value of &lt; .05 (0.00018), hence no variance homogeinity between the groups. The independent T-test results to a p-value of &gt; 0.05 (0.1775).
-There exists significant difference in goods and services imported between Europe and Asia.</p>
+There exists NO significant difference in goods and services imported between Europe and Asia.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15383,7 +15529,16 @@ There exists significant difference in goods and services imported between Europ
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What is the country (or countries) that has the highest 'Population density (people per sq. km of land area)' across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)</p>
+<p>No difference between Asia and Europe. Equal means and Europe is submerged within Asia.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Question-7">Question 7<a class="anchor-link" href="#Question-7">&#182;</a></h2><p>What is the country (or countries) that has the highest 'Population density (people per sq. km of land area)' across all years? (i.e., which country has the highest average ranking in this category across each time point in the dataset?)</p>
+<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Extract the Year, country name and population density data from the main dataset \
+Select and tabulate countries with the highest 'Population density (people per sq. km of land area)' by Year \
+Perform a graphical plot of the results</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15631,10 +15786,11 @@ There exists significant difference in goods and services imported between Europ
 <span class="n">Years</span> <span class="o">=</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">columns</span>
 <span class="n">density</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Years</span><span class="p">:</span>
-  <span class="n">density</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)])</span> <span class="c1">#select maximum population density from each year and the associated countries</span>
+  <span class="n">density</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span> <span class="c1">#select maximum population density from each year and the associated countries</span>
 
-<span class="n">density</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;pop density&quot;</span><span class="p">,</span><span class="s2">&quot;country&quot;</span><span class="p">))</span> <span class="c1">#make a dataframe from the list</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;pop density&quot;</span><span class="p">,</span><span class="s2">&quot;country&quot;</span><span class="p">))</span> <span class="c1">#make a dataframe from the list</span>
 <span class="n">density</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<span class="n">density</span>
 </pre></div>
 
      </div>
@@ -15654,19 +15810,94 @@ There exists significant difference in goods and services imported between Europ
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0              [&#39;Monaco&#39;]
-1              [&#39;Monaco&#39;]
-2    [&#39;Macao SAR, China&#39;]
-3              [&#39;Monaco&#39;]
-4              [&#39;Monaco&#39;]
-5    [&#39;Macao SAR, China&#39;]
-6    [&#39;Macao SAR, China&#39;]
-7    [&#39;Macao SAR, China&#39;]
-8    [&#39;Macao SAR, China&#39;]
-9              [&#39;Monaco&#39;]
-Name: country, dtype: string</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>pop density</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1962</td>
+      <td>11521.000000</td>
+      <td>[Monaco]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1967</td>
+      <td>11648.500000</td>
+      <td>[Monaco]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972</td>
+      <td>12714.100000</td>
+      <td>[Macao SAR, China]</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1977</td>
+      <td>12904.500000</td>
+      <td>[Monaco]</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1982</td>
+      <td>13814.500000</td>
+      <td>[Monaco]</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1987</td>
+      <td>16132.750000</td>
+      <td>[Macao SAR, China]</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1992</td>
+      <td>18889.950000</td>
+      <td>[Macao SAR, China]</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1997</td>
+      <td>20601.550000</td>
+      <td>[Macao SAR, China]</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2002</td>
+      <td>16451.037037</td>
+      <td>[Macao SAR, China]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2007</td>
+      <td>17523.000000</td>
+      <td>[Monaco]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -15717,12 +15948,16 @@ Name: country, dtype: string</pre>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Monaco and Macao SAR China are the two countries with leading 'Population density (people per sq. km of land area)' in each Year</p>
 
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What country (or countries) has shown the greatest increase in 'Life expectancy at birth, total (years)' since 1962?</p>
+<h2 id="Question-8">Question 8<a class="anchor-link" href="#Question-8">&#182;</a></h2><p>What country (or countries) has shown the greatest increase in 'Life expectancy at birth, total (years)' since 1962?</p>
+<h2 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h2><p>Find the difference between the last and the first years i.e 2007 and 1962 \
+Find the top 5 countries with highest increase \
+Do a plot.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15737,8 +15972,19 @@ Name: country, dtype: string</pre>
     <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">expectancy_data</span> <span class="o">=</span> <span class="n">expectancy_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#remove countries with missing data</span>
+<span class="n">expectancy_data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">expectancy_data</span>
+<span class="n">increase</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">#dictionary for country and difference in life expectancy between 1962 and 2007</span>
+<span class="n">country</span> <span class="o">=</span> <span class="n">expectancy_data</span><span class="o">.</span><span class="n">columns</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">country</span><span class="p">:</span>
+    <span class="n">increase</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">expectancy_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">expectancy_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">great_increase</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">increase</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+
+<span class="n">increase_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">great_increase</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;country&quot;</span><span class="p">,</span> <span class="s2">&quot;difference&quot;</span><span class="p">))</span> <span class="c1">#convert to dataframe</span>
+<span class="n">increase_data</span> <span class="o">=</span> <span class="n">increase_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;difference&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#Sort the dataframe in descending order</span>
+
+<span class="n">increase_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Find the top 5 countries with highest increase in life expectancy</span>
 </pre></div>
 
      </div>
@@ -15776,274 +16022,39 @@ Name: country, dtype: string</pre>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>Country Name</th>
-      <th>Year</th>
-      <th>Afghanistan</th>
-      <th>Albania</th>
-      <th>Algeria</th>
-      <th>Angola</th>
-      <th>Antigua and Barbuda</th>
-      <th>Arab World</th>
-      <th>Argentina</th>
-      <th>Armenia</th>
-      <th>Aruba</th>
-      <th>...</th>
-      <th>Uruguay</th>
-      <th>Uzbekistan</th>
-      <th>Vanuatu</th>
-      <th>Venezuela, RB</th>
-      <th>Vietnam</th>
-      <th>Virgin Islands</th>
-      <th>World</th>
-      <th>Yemen, Rep.</th>
-      <th>Zambia</th>
-      <th>Zimbabwe</th>
+      <th></th>
+      <th>country</th>
+      <th>difference</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>1962</td>
-      <td>33.219902</td>
-      <td>64.162854</td>
-      <td>47.045000</td>
-      <td>33.787585</td>
-      <td>62.598537</td>
-      <td>48.008603</td>
-      <td>65.432610</td>
-      <td>66.709854</td>
-      <td>66.365537</td>
-      <td>...</td>
-      <td>68.296634</td>
-      <td>59.713024</td>
-      <td>47.688195</td>
-      <td>60.430317</td>
-      <td>60.410537</td>
-      <td>64.462561</td>
-      <td>53.404890</td>
-      <td>34.739561</td>
-      <td>45.853659</td>
-      <td>52.277902</td>
+      <th>136</th>
+      <td>Maldives</td>
+      <td>36.916</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>1967</td>
-      <td>35.389415</td>
-      <td>66.287220</td>
-      <td>49.187512</td>
-      <td>35.799976</td>
-      <td>64.488073</td>
-      <td>50.885697</td>
-      <td>65.930024</td>
-      <td>68.830488</td>
-      <td>68.034683</td>
-      <td>...</td>
-      <td>68.645512</td>
-      <td>61.744122</td>
-      <td>50.681829</td>
-      <td>63.111829</td>
-      <td>61.842049</td>
-      <td>66.462463</td>
-      <td>56.734565</td>
-      <td>38.420195</td>
-      <td>47.681463</td>
-      <td>53.945439</td>
+      <th>20</th>
+      <td>Bhutan</td>
+      <td>33.199</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>1972</td>
-      <td>37.610146</td>
-      <td>67.585951</td>
-      <td>51.171805</td>
-      <td>37.826927</td>
-      <td>66.188268</td>
-      <td>53.587021</td>
-      <td>67.167951</td>
-      <td>70.367341</td>
-      <td>69.798659</td>
-      <td>...</td>
-      <td>68.795902</td>
-      <td>63.320341</td>
-      <td>53.679439</td>
-      <td>65.562146</td>
-      <td>59.021610</td>
-      <td>68.580561</td>
-      <td>59.567739</td>
-      <td>42.854829</td>
-      <td>49.955341</td>
-      <td>55.563098</td>
+      <th>213</th>
+      <td>Timor-Leste</td>
+      <td>31.085</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>1977</td>
-      <td>40.110146</td>
-      <td>69.456171</td>
-      <td>54.578268</td>
-      <td>39.581366</td>
-      <td>67.730756</td>
-      <td>56.661192</td>
-      <td>68.629439</td>
-      <td>70.542902</td>
-      <td>71.377707</td>
-      <td>...</td>
-      <td>69.529854</td>
-      <td>64.442683</td>
-      <td>56.703098</td>
-      <td>67.336195</td>
-      <td>64.526707</td>
-      <td>70.490927</td>
-      <td>61.797069</td>
-      <td>47.540463</td>
-      <td>51.548146</td>
-      <td>57.651366</td>
+      <th>217</th>
+      <td>Tunisia</td>
+      <td>30.861</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>1982</td>
-      <td>43.230732</td>
-      <td>70.685122</td>
-      <td>60.786341</td>
-      <td>40.408000</td>
-      <td>69.140927</td>
-      <td>59.799532</td>
-      <td>70.035317</td>
-      <td>70.535512</td>
-      <td>72.673195</td>
-      <td>...</td>
-      <td>70.831610</td>
-      <td>65.922122</td>
-      <td>59.664878</td>
-      <td>68.644537</td>
-      <td>68.093878</td>
-      <td>72.036463</td>
-      <td>63.461229</td>
-      <td>52.492707</td>
-      <td>50.786000</td>
-      <td>60.605512</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1987</td>
-      <td>47.296341</td>
-      <td>71.861951</td>
-      <td>65.487146</td>
-      <td>40.973878</td>
-      <td>70.432634</td>
-      <td>63.009285</td>
-      <td>70.967756</td>
-      <td>68.567561</td>
-      <td>73.242707</td>
-      <td>...</td>
-      <td>71.997561</td>
-      <td>67.002512</td>
-      <td>61.914634</td>
-      <td>69.438220</td>
-      <td>69.509585</td>
-      <td>73.775951</td>
-      <td>64.766854</td>
-      <td>56.356732</td>
-      <td>46.936366</td>
-      <td>61.753805</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1992</td>
-      <td>51.362927</td>
-      <td>71.900805</td>
-      <td>67.209683</td>
-      <td>41.313024</td>
-      <td>71.634707</td>
-      <td>65.069810</td>
-      <td>71.988951</td>
-      <td>67.853341</td>
-      <td>73.471756</td>
-      <td>...</td>
-      <td>72.906805</td>
-      <td>66.359268</td>
-      <td>64.103415</td>
-      <td>70.188024</td>
-      <td>70.995463</td>
-      <td>75.400512</td>
-      <td>65.738976</td>
-      <td>58.418634</td>
-      <td>43.004610</td>
-      <td>56.491976</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1997</td>
-      <td>54.017829</td>
-      <td>72.898098</td>
-      <td>68.921220</td>
-      <td>43.062122</td>
-      <td>72.757561</td>
-      <td>66.817944</td>
-      <td>73.108049</td>
-      <td>69.716415</td>
-      <td>73.614805</td>
-      <td>...</td>
-      <td>74.005000</td>
-      <td>66.571122</td>
-      <td>66.330098</td>
-      <td>71.512268</td>
-      <td>72.403512</td>
-      <td>76.802561</td>
-      <td>66.857422</td>
-      <td>59.747976</td>
-      <td>42.158195</td>
-      <td>46.065902</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2002</td>
-      <td>55.857195</td>
-      <td>75.154610</td>
-      <td>71.014854</td>
-      <td>46.711732</td>
-      <td>73.815439</td>
-      <td>68.102625</td>
-      <td>74.155780</td>
-      <td>72.201610</td>
-      <td>73.865244</td>
-      <td>...</td>
-      <td>75.095561</td>
-      <td>67.108366</td>
-      <td>68.299951</td>
-      <td>72.775268</td>
-      <td>73.576561</td>
-      <td>78.024390</td>
-      <td>68.158441</td>
-      <td>60.888000</td>
-      <td>45.306659</td>
-      <td>40.679146</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2007</td>
-      <td>57.833829</td>
-      <td>76.470293</td>
-      <td>72.898366</td>
-      <td>49.435732</td>
-      <td>74.803220</td>
-      <td>69.207008</td>
-      <td>75.009049</td>
-      <td>73.764659</td>
-      <td>74.526756</td>
-      <td>...</td>
-      <td>75.951024</td>
-      <td>67.531220</td>
-      <td>69.948732</td>
-      <td>73.388902</td>
-      <td>74.483854</td>
-      <td>78.824390</td>
-      <td>69.641854</td>
-      <td>61.954805</td>
-      <td>52.477146</td>
-      <td>44.177756</td>
+      <th>164</th>
+      <td>Oman</td>
+      <td>30.823</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 237 columns</p>
 </div>
 </div>
 
@@ -16053,16 +16064,26 @@ Name: country, dtype: string</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Country with the highest increase in Life expectancy is Maldives. \
+The plot below shows top 5 countries with increase in Life expectancy</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Graphical display of trends in life expectancy using line trends</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">expectancy_data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">expectancy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Energy consumption (Kg)&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Graphical display </span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">increase_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+               <span class="n">x</span><span class="o">=</span><span class="s2">&quot;difference&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">,</span>
+               <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Top 5 countries with highest increase in Life expectancy&quot;</span><span class="p">,</span>
+               <span class="n">width</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">categoryorder</span><span class="o">=</span><span class="s2">&quot;total ascending&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Life expectancy increase&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -16082,21 +16103,6 @@ Name: country, dtype: string</pre>
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/Users/mikemwanga/.pymod/pymod_envs/pymod_env/lib/python3.7/site-packages/plotly/express/_core.py:1222: PerformanceWarning:
-
-DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead.  To get a de-fragmented frame, use `newframe = frame.copy()`
-
-</pre>
-</div>
-</div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
 
 
 
@@ -16106,11 +16112,6 @@ DataFrame is highly fragmented.  This is usually the result of calling `frame.in
 
 </div>
 
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
 </div>
 </body>
 
