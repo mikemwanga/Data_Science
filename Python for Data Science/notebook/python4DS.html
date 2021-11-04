@@ -14289,6 +14289,7 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sbn</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">plotly</span> <span class="k">as</span> <span class="nn">pltly</span>
 </pre></div>
 
      </div>
@@ -14510,206 +14511,7 @@ a.anchor-link {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="o">.</span><span class="n">Year</span> <span class="o">==</span> <span class="mi">1962</span><span class="p">]</span>
-<span class="n">my_data_1962</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>Country Name</th>
-      <th>Year</th>
-      <th>Agriculture, value added (% of GDP)</th>
-      <th>CO2 emissions (metric tons per capita)</th>
-      <th>Domestic credit provided by financial sector (% of GDP)</th>
-      <th>Electric power consumption (kWh per capita)</th>
-      <th>Energy use (kg of oil equivalent per capita)</th>
-      <th>Exports of goods and services (% of GDP)</th>
-      <th>Fertility rate, total (births per woman)</th>
-      <th>GDP growth (annual %)</th>
-      <th>Imports of goods and services (% of GDP)</th>
-      <th>Industry, value added (% of GDP)</th>
-      <th>Inflation, GDP deflator (annual %)</th>
-      <th>Life expectancy at birth, total (years)</th>
-      <th>Population density (people per sq. km of land area)</th>
-      <th>Services, etc., value added (% of GDP)</th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>Afghanistan</td>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>0.073781</td>
-      <td>21.276422</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>4.878051</td>
-      <td>7.450</td>
-      <td>NaN</td>
-      <td>9.349593</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>33.219902</td>
-      <td>14.312061</td>
-      <td>NaN</td>
-      <td>10267083.0</td>
-      <td>Asia</td>
-      <td>853.100710</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>10</td>
-      <td>Albania</td>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>1.439956</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>6.282</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>64.162854</td>
-      <td>62.456898</td>
-      <td>NaN</td>
-      <td>1728137.0</td>
-      <td>Europe</td>
-      <td>2312.888958</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>20</td>
-      <td>Algeria</td>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>0.484954</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>19.793873</td>
-      <td>7.614</td>
-      <td>-19.685042</td>
-      <td>20.818647</td>
-      <td>NaN</td>
-      <td>2.351279</td>
-      <td>47.045000</td>
-      <td>4.908240</td>
-      <td>NaN</td>
-      <td>11000948.0</td>
-      <td>Africa</td>
-      <td>2550.816880</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>30</td>
-      <td>American Samoa</td>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>105.590000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>40</td>
-      <td>Andorra</td>
-      <td>1962</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>32.714894</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">Scatter plot of the global <code>CO2 emissions</code> and <code>GDPperCap</code> in 1962.<a class="anchor-link" href="#Scatter-plot-of-the-global-CO2-emissions-and-GDPperCap-in-1962.">&#182;</a></h3>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Extract the attributes</span>
+<span class="c1">#Extract the attributes</span>
 <span class="n">data_1962</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
 <span class="n">data_1962</span> <span class="o">=</span> <span class="n">data_1962</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># drop rows containing missing data</span>
 
@@ -14759,11 +14561,11 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Question-2">Question 2<a class="anchor-link" href="#Question-2">&#182;</a></h2><h3 id="Pearson-Correlation-of-CO2-emissions-and-GDP-per-capita.">Pearson Correlation of <code>CO2 emissions and GDP per capita.</code><a class="anchor-link" href="#Pearson-Correlation-of-CO2-emissions-and-GDP-per-capita.">&#182;</a></h3><p>On the filtered data, calculate the pearson correlation of 'CO2 emissions (metric tons per capita)' and gdpPercap. What is the Pearson R value and associated p value?</p>
 <p>Detemining the pearson R and P values!</p>
-<p>Pearson correlation is the measure of strength of linear association between two variables and is denotated by <em>r</em>. 
+<p>Pearson correlation is the measure of strength of linear association between two variables and is denotated by <em>r</em>. <br>
 When:  <br>
-    <em>r=0</em> - no correlation  \
-    <em>r&gt;0</em> - positive correlation  \
-    <em>r&lt;0</em> - negative correlation  \</p>
+    <em>r=0</em> - no correlation <br>
+    <em>r&gt;0</em> - positive correlation  <br>
+    <em>r&lt;0</em> - negative correlation  <br></p>
 <p>The <code>pearsonr()</code> from <code>scipy</code> library will be used in here. 
 <code>x</code> is the <code>CO2 emissions</code> and <code>y</code> is <code>GDP per capita</code>
 links
@@ -14818,7 +14620,11 @@ links
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">&#182;</a></h2><h3 id="Determine-year-with-maximum-correlation">Determine year with maximum correlation<a class="anchor-link" href="#Determine-year-with-maximum-correlation">&#182;</a></h3><p>On the unfiltered data, answer "In what year is the correlation between 'CO2 emissions (metric tons per capita)' and gdpPercap the strongest?" Filter the dataset to that year for the next step...</p>
+<h2 id="Question-3">Question 3<a class="anchor-link" href="#Question-3">&#182;</a></h2><h3>Determine year with maximum correlation <br></h3>
+<p>On the unfiltered data, answer <br> "In what year is the correlation between 'CO2 emissions (metric tons per capita)' and gdpPercap the strongest?" Filter the dataset to that year for the next step.</p>
+<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Extract the respective features from main data <br>
+Determine pearson's correlation for each year <br>
+Identify year with maximum correlation <br></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14902,7 +14708,7 @@ links
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">&#182;</a></h2><p>Filter Dataset to the year with highest correlation and create a scatter plot between <code>CO2 emission</code> and <code>gdpPaCap</code>
+<h2 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">&#182;</a></h2><p>Filter Dataset to the year with highest correlation and create a scatter plot between <code>CO2 emission</code> and <code>gdpPaCap</code> <br>
 Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissions (metric tons per capita)' and gdpPercap, where the point size is determined by pop (population) and the color is determined by the continent.</p>
 
 </div>
@@ -14912,165 +14718,20 @@ Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissio
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_1967</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1967</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pltly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data_1967</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[</span><span class="n">my_data</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1967</span><span class="p">]</span>
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">data_1967</span><span class="p">[[</span>
     <span class="s2">&quot;pop&quot;</span><span class="p">,</span> <span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> <span class="s2">&quot;gdpPercap&quot;</span><span class="p">]]</span>
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">corr_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>  <span class="c1"># the data has missing data which we drop here</span>
 
-<span class="c1">#Since the population values are extremely large, we get their log10 forms and use that to plot</span>
-
-<span class="c1">#corr_data[&quot;pop_log&quot;] = np.log10(corr_data[[&quot;pop&quot;]])</span>
-<span class="c1">#corr_data.head()</span>
-
-<span class="n">corr_data</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pop</th>
-      <th>continent</th>
-      <th>CO2 emissions (metric tons per capita)</th>
-      <th>gdpPercap</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>11537966.0</td>
-      <td>Asia</td>
-      <td>0.123782</td>
-      <td>836.197138</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>1984060.0</td>
-      <td>Europe</td>
-      <td>1.363746</td>
-      <td>2760.196931</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>12760499.0</td>
-      <td>Africa</td>
-      <td>0.632118</td>
-      <td>3246.991771</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>5247469.0</td>
-      <td>Africa</td>
-      <td>0.166659</td>
-      <td>5522.776375</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>22934225.0</td>
-      <td>Americas</td>
-      <td>2.858163</td>
-      <td>8052.953021</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>2484</th>
-      <td>198712000.0</td>
-      <td>Americas</td>
-      <td>18.598318</td>
-      <td>19530.365570</td>
-    </tr>
-    <tr>
-      <th>2504</th>
-      <td>2748579.0</td>
-      <td>Americas</td>
-      <td>1.776101</td>
-      <td>5444.619620</td>
-    </tr>
-    <tr>
-      <th>2544</th>
-      <td>39463910.0</td>
-      <td>Asia</td>
-      <td>0.574906</td>
-      <td>637.123289</td>
-    </tr>
-    <tr>
-      <th>2588</th>
-      <td>3900000.0</td>
-      <td>Africa</td>
-      <td>1.263628</td>
-      <td>1777.077318</td>
-    </tr>
-    <tr>
-      <th>2598</th>
-      <td>4995432.0</td>
-      <td>Africa</td>
-      <td>1.122961</td>
-      <td>569.795071</td>
-    </tr>
-  </tbody>
-</table>
-<p>113 rows × 4 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">corr_data</span><span class="p">,</span> 
-                 <span class="n">x</span><span class="o">=</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span> 
-                 <span class="n">y</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> 
-                 <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
-                 <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">25000</span><span class="p">])</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">corr_data</span><span class="p">,</span>
+                   <span class="n">x</span><span class="o">=</span><span class="s2">&quot;CO2 emissions (metric tons per capita)&quot;</span><span class="p">,</span>
+                   <span class="n">y</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+                   <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+                   <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25000</span><span class="p">])</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
-                 
+
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -15091,7 +14752,61 @@ Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissio
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.4.2.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+</div>
 
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>                            <div id="65d319eb-dfbb-4172-819f-70413369cc2e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("65d319eb-dfbb-4172-819f-70413369cc2e")) {                    Plotly.newPlot(                        "65d319eb-dfbb-4172-819f-70413369cc2e",                        [{"hovertemplate":"continent=Asia<br>CO2 emissions (metric tons per capita)=%{x}<br>gdpPercap=%{y}<br>pop=%{marker.size}<extra></extra>","legendgroup":"Asia","marker":{"color":"#636efa","size":[11537966.0,202182.0,6960067.0,754550000.0,506000000.0,109343000.0,8519282.0,2693585.0,100825279.0,1255058.0,575003.0,2186894.0,1149500.0,25870271.0,11261690.0,714775.0,60641899.0,35356600.0,5618198.0,1977600.0,11737396.0,34024249.0,39463910.0],"sizemode":"area","sizeref":1886375.0,"symbol":"circle"},"mode":"markers","name":"Asia","orientation":"v","showlegend":true,"type":"scatter","x":[0.123782381421,5.12101242081,0.0624360387486,0.574162146975,0.331763432432,0.23191547809,2.05575631533,4.93341748634,4.86355784562,1.0719834839700002,43.4283027016,1.64225486815,1.83477215037,0.143519517019,0.0188098863912,0.205537806177,0.402522332305,0.555413076261,4.90876421118,1.54645934466,0.25192412202,0.360202673298,0.574906353177],"xaxis":"x","y":[836.1971382,14804.6727,523.4323142,612.7056934,700.7706107000001,762.4317721,8931.459811,8393.741404,9847.788607,2741.796252,80894.88326,6006.983042,1226.04113,349.0,676.4422254,4720.942687,942.4082588,1814.12743,16903.04886,4977.41854,1135.514326,1295.46066,637.1232887],"yaxis":"y"},{"hovertemplate":"continent=Europe<br>CO2 emissions (metric tons per capita)=%{x}<br>gdpPercap=%{y}<br>pop=%{marker.size}<extra></extra>","legendgroup":"Europe","marker":{"color":"#EF553B","size":[1984060.0,7376998.0,9556500.0,8310226.0,4838800.0,4605744.0,49569000.0,8716441.0,10223422.0,198676.0,2900100.0,52667100.0,12596822.0,3786019.0,31785378.0,9103000.0,19284814.0,32850275.0,7867931.0,6063000.0,33411317.0,54959000.0],"sizemode":"area","sizeref":1886375.0,"symbol":"circle"},"mode":"markers","name":"Europe","orientation":"v","showlegend":true,"type":"scatter","x":[1.36374630011,5.41773672705,11.2172567535,6.63836916108,10.1493005476,6.21338658857,7.3064221599,2.24941398567,5.758242269149999,7.269387323839999,5.65504728764,4.43148255688,8.47605463669,5.1072949704,8.105834013680001,1.39828723131,4.71631855487,2.64722755876,8.770023402589999,5.43460087436,1.03313907211,10.7841045545],"xaxis":"x","y":[2760.196931,12834.6024,13149.04119,5577.0028,15937.21123,10921.63626,12999.91766,8513.097016,9326.64467,13319.89568,7655.568963,10022.40131,15363.25136,16361.87647,6557.152776,6361.517993,6470.866545,7993.512294,15258.29697,22966.14432,2826.3563870000003,14142.85089],"yaxis":"y"},{"hovertemplate":"continent=Africa<br>CO2 emissions (metric tons per capita)=%{x}<br>gdpPercap=%{y}<br>pop=%{marker.size}<extra></extra>","legendgroup":"Africa","marker":{"color":"#00cc96","size":[12760499.0,5247469.0,2427334.0,5127935.0,3330989.0,6335506.0,1733638.0,3495967.0,217378.0,4744870.0,127617.0,259864.0,27860297.0,489004.0,8490213.0,3451418.0,601287.0,10191512.0,1279406.0,1759224.0,6334556.0,4147252.0,5212416.0,1230542.0,789309.0,14770296.0,8680909.0,4534062.0,47287752.0,3451079.0,70787.0,3965841.0,2662190.0,3428839.0,20997321.0,12716129.0,420690.0,12607312.0,1735550.0,4786986.0,8900294.0,3900000.0,4995432.0],"sizemode":"area","sizeref":1886375.0,"symbol":"circle"},"mode":"markers","name":"Africa","orientation":"v","showlegend":true,"type":"scatter","x":[0.632118426889,0.166658588848,0.0523195961148,0.0192168474009,0.0147354429891,0.0729810151442,0.0533441408437,0.0341490827003,0.0856623590204,0.324270273072,0.669756398256,0.0908814105401,0.0408827807982,1.82744493336,0.185683744295,0.180529006335,0.0707397168393,0.266146233454,0.465652918101,9.94130993774,0.138895338975,0.086039155676,0.0392007077217,0.188179057955,0.6361795955439999,0.3615857767970001,0.216165510896,0.0318543481335,0.244682890582,0.0118002652184999,0.1620797359809999,0.181319271624,0.105440879922,0.0704483235701,6.46564779364,0.250771072594,0.55253014742,0.141879278158,0.10672264605,0.638870927594,0.0944460734361,1.2636279603,1.12296052314],"xaxis":"x","y":[3246.991771,5522.776375,1035.831411,794.8265597,412.97751360000007,1508.453148,1136.056615,1196.810565,1876.029643,2052.050473,3020.050513,915.5960025,516.1186438,8358.761987,1125.69716,708.7595409,715.5806402000001,1056.736457,713.6036482999999,18772.75169,1634.047282,495.5147806,545.0098873,1421.145193,2475.387562,1711.04477,566.6691539,1054.384891,1014.514104,510.9637142,1384.840593,1612.404632,1206.043465,1284.7331800000002,7114.477970999999,1687.997641,2613.101665,848.2186575,1477.59676,1932.3601670000005,908.9185217,1777.077318,569.7950712],"yaxis":"y"},{"hovertemplate":"continent=Americas<br>CO2 emissions (metric tons per capita)=%{x}<br>gdpPercap=%{y}<br>pop=%{marker.size}<extra></extra>","legendgroup":"Americas","marker":{"color":"#ab63fa","size":[22934225.0,4040665.0,88049823.0,20819767.0,8858908.0,19764027.0,1588717.0,8139332.0,4049146.0,5432424.0,3232927.0,4690773.0,4318137.0,2500689.0,1861096.0,47995559.0,1865490.0,1405486.0,2287985.0,12132200.0,960155.0,198712000.0,2748579.0],"sizemode":"area","sizeref":1886375.0,"symbol":"circle"},"mode":"markers","name":"Americas","orientation":"v","showlegend":true,"type":"scatter","x":[2.85816254619,0.446569679542,0.744966530874,13.8103545953,2.1409901271900003,1.21683476874,0.517145991263,1.90593276713,0.380469161164,0.465781970972,0.342459705043,0.397317380131,0.0585660070754,0.352498584235,2.14463346178,1.8996986330400003,0.493983688604,1.21812383412,0.213013396786,1.1118562074299998,5.00989828473,18.5983178822,1.77610139003],"xaxis":"x","y":[8052.953020999999,2586.886053,3429.864357,16076.58803,5106.654313,2678.729839,4161.727834,5690.268015,1653.7230029999998,4579.074215,4358.595393,3242.531147,1452.057666,2538.269358,6124.703450999999,5754.733883,4643.393534000001,4421.009084,2299.376311,5788.09333,5621.368472,19530.36557,5444.61962],"yaxis":"y"},{"hovertemplate":"continent=Oceania<br>CO2 emissions (metric tons per capita)=%{x}<br>gdpPercap=%{y}<br>pop=%{marker.size}<extra></extra>","legendgroup":"Oceania","marker":{"color":"#FFA15A","size":[11872264.0,2728150.0],"sizemode":"area","sizeref":1886375.0,"symbol":"circle"},"mode":"markers","name":"Oceania","orientation":"v","showlegend":true,"type":"scatter","x":[10.9556247987,5.00761352373],"xaxis":"x","y":[14526.12465,14463.918930000002],"yaxis":"y"}],                        {"legend":{"itemsizing":"constant","title":{"text":"continent"},"tracegroupgap":0},"margin":{"t":60},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"range":[0,20],"title":{"text":"CO2 emissions (metric tons per capita)"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"range":[0,25000],"title":{"text":"gdpPercap"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('65d319eb-dfbb-4172-819f-70413369cc2e');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
 
 </div>
 
@@ -15104,7 +14819,9 @@ Using plotly or bokeh, create an interactive scatter plot comparing 'CO2 emissio
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Question-5">Question 5<a class="anchor-link" href="#Question-5">&#182;</a></h2><p>Now, without further guidance, use your Python Data Science skills (and the correct statistical tests) to answer the following:
 What is the relationship between continent and 'Energy use (kg of oil equivalent per capita)'? (Stats test needed)</p>
-<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Plot treads and average consumption by each continent</p>
+<h3 id="Approach">Approach<a class="anchor-link" href="#Approach">&#182;</a></h3><p>Visualize the trends and average energy use per continent <br>
+Perform an ANOVA test to compare the means <br>
+Check which pairs have signinficant differences: T-test <br></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15113,7 +14830,8 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pltly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]]</span>
 
 <span class="n">energy_data</span> <span class="o">=</span> <span class="n">energy_data</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
@@ -15143,7 +14861,61 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.4.2.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+</div>
 
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>                            <div id="262da30f-0b89-4524-9170-cacf6e0b07b1" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("262da30f-0b89-4524-9170-cacf6e0b07b1")) {                    Plotly.newPlot(                        "262da30f-0b89-4524-9170-cacf6e0b07b1",                        [{"hovertemplate":"continent=Africa<br>Year=%{x}<br>value=%{y}<extra></extra>","legendgroup":"Africa","line":{"color":"#636efa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"Africa","orientation":"v","showlegend":true,"type":"scatter","x":[1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"xaxis":"x","y":[null,null,624.2717806831364,669.6550494370455,740.6494397515652,736.5648354214783,692.3623108444401,720.89510229372,709.6067636306154,690.3427267756673],"yaxis":"y"},{"hovertemplate":"continent=Americas<br>Year=%{x}<br>value=%{y}<extra></extra>","legendgroup":"Americas","line":{"color":"#EF553B","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"Americas","orientation":"v","showlegend":true,"type":"scatter","x":[1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"xaxis":"x","y":[5113.073215445,6183.556112034999,1379.2495737454783,1458.864501732087,1441.6745201405654,1480.1537394216089,1558.675537292826,1657.6380667851304,1825.013653925087,2141.660256744913],"yaxis":"y"},{"hovertemplate":"continent=Asia<br>Year=%{x}<br>value=%{y}<extra></extra>","legendgroup":"Asia","line":{"color":"#00cc96","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"Asia","orientation":"v","showlegend":true,"type":"scatter","x":[1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"xaxis":"x","y":[1003.75225394,1720.54974435,1193.8632974688182,1330.1013028227273,1624.6756853214545,1793.8607078355217,1808.3780559127727,2264.8994550481666,2322.2268045251667,2513.2637574139585],"yaxis":"y"},{"hovertemplate":"continent=Europe<br>Year=%{x}<br>value=%{y}<extra></extra>","legendgroup":"Europe","line":{"color":"#ab63fa","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"Europe","orientation":"v","showlegend":true,"type":"scatter","x":[1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"xaxis":"x","y":[1786.9239327613159,2178.2267940056,2852.79902284964,3161.45537957768,3219.13134207596,3593.0809185870803,3202.7962603431724,3414.196077144966,3575.239270757069,3721.313839695033],"yaxis":"y"},{"hovertemplate":"continent=Oceania<br>Year=%{x}<br>value=%{y}<extra></extra>","legendgroup":"Oceania","line":{"color":"#FFA15A","dash":"solid"},"marker":{"symbol":"circle"},"mode":"lines","name":"Oceania","orientation":"v","showlegend":true,"type":"scatter","x":[1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"xaxis":"x","y":[2482.218093265,2940.7507316399997,3326.1837018300002,3863.138379085,3915.2304565249997,4112.66657242,4383.846069575,4864.178382985,4953.510758375,4961.42105081],"yaxis":"y"}],                        {"legend":{"title":{"text":"continent"},"tracegroupgap":0},"margin":{"t":60},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Year"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Energy consumption (Kg)"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('262da30f-0b89-4524-9170-cacf6e0b07b1');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
 
 </div>
 
@@ -15159,7 +14931,7 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Relationship between continent vs Energy used.</span>
 <span class="c1">#Calculate mean consumption for each continent</span>
-
+<span class="n">pltly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">energy_data</span> <span class="o">=</span> <span class="n">my_data</span><span class="p">[[</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Year&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;Energy use (kg of oil equivalent per capita)&quot;</span><span class="p">]]</span>
 <span class="c1">#remove missing data</span>
@@ -15204,7 +14976,61 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.4.2.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+</div>
 
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>                            <div id="209673c6-ee03-4f73-936b-bc6c717ffe3d" class="plotly-graph-div" style="height:700px; width:600px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("209673c6-ee03-4f73-936b-bc6c717ffe3d")) {                    Plotly.newPlot(                        "209673c6-ee03-4f73-936b-bc6c717ffe3d",                        [{"alignmentgroup":"True","hovertemplate":"continent=%{x}<br>Average energy consumption (Kg)=%{y}<extra></extra>","legendgroup":"Europe","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"Europe","offsetgroup":"Europe","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":["Europe"],"xaxis":"x","y":[3146.062066444523],"yaxis":"y"},{"alignmentgroup":"True","hovertemplate":"continent=%{x}<br>Average energy consumption (Kg)=%{y}<extra></extra>","legendgroup":"Africa","marker":{"color":"#EF553B","pattern":{"shape":""}},"name":"Africa","offsetgroup":"Africa","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":["Africa"],"xaxis":"x","y":[698.5167827038744],"yaxis":"y"},{"alignmentgroup":"True","hovertemplate":"continent=%{x}<br>Average energy consumption (Kg)=%{y}<extra></extra>","legendgroup":"Americas","marker":{"color":"#00cc96","pattern":{"shape":""}},"name":"Americas","offsetgroup":"Americas","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":["Americas"],"xaxis":"x","y":[1703.6204531918995],"yaxis":"y"},{"alignmentgroup":"True","hovertemplate":"continent=%{x}<br>Average energy consumption (Kg)=%{y}<extra></extra>","legendgroup":"Oceania","marker":{"color":"#ab63fa","pattern":{"shape":""}},"name":"Oceania","offsetgroup":"Oceania","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":["Oceania"],"xaxis":"x","y":[3980.3144196509993],"yaxis":"y"},{"alignmentgroup":"True","hovertemplate":"continent=%{x}<br>Average energy consumption (Kg)=%{y}<extra></extra>","legendgroup":"Asia","marker":{"color":"#FFA15A","pattern":{"shape":""}},"name":"Asia","offsetgroup":"Asia","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":["Asia"],"xaxis":"x","y":[1867.2803362149673],"yaxis":"y"}],                        {"barmode":"relative","height":700,"legend":{"title":{"text":"continent"},"tracegroupgap":0},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Average Energy consumption by Continent (Kg)"},"width":600,"xaxis":{"anchor":"y","categoryarray":["Europe","Africa","Americas","Oceania","Asia"],"categoryorder":"array","domain":[0.0,1.0],"title":{"text":"continent"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Average energy consumption (Kg)"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('209673c6-ee03-4f73-936b-bc6c717ffe3d');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
 
 </div>
 
@@ -15215,8 +15041,10 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Generally, Oceania continent has highest consumption rate which has increased steadly overtime. African continent showed the least energy consumption. Suprisingly, the Americas had the highest consumption rate in the first decade, which declined drastically.</p>
-<h3 id="Perform-ANOVA-test-of-the-means">Perform ANOVA test of the means<a class="anchor-link" href="#Perform-ANOVA-test-of-the-means">&#182;</a></h3><p>Anova results to an F_statistic</p>
+<p>Generally, Oceania continent has highest consumption rate which has increased steadly overtime. <br></p>
+<p>African continent showed the least energy consumption. <br></p>
+<p>Suprisingly, the Americas had the highest consumption rate in the first decade, which declined drastically.</p>
+<p>ANOVA test.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -15269,48 +15097,12 @@ What is the relationship between continent and 'Energy use (kg of oil equivalent
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">energy_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&#39;Americas&#39;</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>F_statistic results to  a P-value of 0.001. There exists significant difference in the energy consumption between the continents. \</p>
-<p>But which of the groups is causing this huge difference.</p>
+<p>F_statistic results to  a P-value of 0.001. <br></p>
+<p>There exists significant difference in the energy consumption between the continents. <br></p>
+<p>But which of the groups is causing this huge difference. Perform a T-test on each pair <br></p>
 <p>Following <a href="https://youtu.be/EWYzeZbchR0">this tutorial</a></p>
 
 </div>
@@ -15487,7 +15279,8 @@ There exists NO significant difference in goods and services imported between Eu
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">euro</span> <span class="o">=</span> <span class="p">[</span><span class="n">Europe</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Europe</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">Europe</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Visualize the metrics of the dataset with whiscker plot</span>
+<span class="n">euro</span> <span class="o">=</span> <span class="p">[</span><span class="n">Europe</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Europe</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">Europe</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
 <span class="n">asia</span> <span class="o">=</span> <span class="p">[</span><span class="n">Asia</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Asia</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">Asia</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
 <span class="n">rowlabs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="s2">&quot;max&quot;</span><span class="p">]</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Asia&quot;</span><span class="p">:</span> <span class="n">asia</span><span class="p">,</span> <span class="s2">&quot;Euro&quot;</span><span class="p">:</span> <span class="n">euro</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">rowlabs</span><span class="p">)</span>
@@ -15555,240 +15348,18 @@ Perform a graphical plot of the results</p>
     <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">pop_dns</span> <span class="o">=</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> <span class="c1">#drop countries with missing data</span>
 <span class="n">pop_dns</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Country Name&quot;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">pop_dns</span>
-</pre></div>
 
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Year</th>
-      <th>1962</th>
-      <th>1967</th>
-      <th>1972</th>
-      <th>1977</th>
-      <th>1982</th>
-      <th>1987</th>
-      <th>1992</th>
-      <th>1997</th>
-      <th>2002</th>
-      <th>2007</th>
-    </tr>
-    <tr>
-      <th>Country Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Afghanistan</th>
-      <td>14.312061</td>
-      <td>15.881812</td>
-      <td>17.947027</td>
-      <td>19.998926</td>
-      <td>19.402324</td>
-      <td>17.366559</td>
-      <td>21.054483</td>
-      <td>27.623273</td>
-      <td>32.912231</td>
-      <td>39.637202</td>
-    </tr>
-    <tr>
-      <th>Albania</th>
-      <td>62.456898</td>
-      <td>71.737153</td>
-      <td>81.865912</td>
-      <td>91.735255</td>
-      <td>101.615985</td>
-      <td>112.540328</td>
-      <td>118.505073</td>
-      <td>114.900766</td>
-      <td>111.350730</td>
-      <td>108.394781</td>
-    </tr>
-    <tr>
-      <th>Algeria</th>
-      <td>4.908240</td>
-      <td>5.606908</td>
-      <td>6.456244</td>
-      <td>7.427420</td>
-      <td>8.638937</td>
-      <td>10.042191</td>
-      <td>11.412212</td>
-      <td>12.548690</td>
-      <td>13.431519</td>
-      <td>14.385269</td>
-    </tr>
-    <tr>
-      <th>American Samoa</th>
-      <td>105.590000</td>
-      <td>125.580000</td>
-      <td>142.450000</td>
-      <td>153.450000</td>
-      <td>173.700000</td>
-      <td>212.240000</td>
-      <td>247.985000</td>
-      <td>274.710000</td>
-      <td>293.645000</td>
-      <td>289.520000</td>
-    </tr>
-    <tr>
-      <th>Andorra</th>
-      <td>32.714894</td>
-      <td>44.159574</td>
-      <td>57.217021</td>
-      <td>69.721277</td>
-      <td>83.217021</td>
-      <td>103.102128</td>
-      <td>125.327660</td>
-      <td>136.482979</td>
-      <td>151.161702</td>
-      <td>180.591489</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>Virgin Islands</th>
-      <td>103.714286</td>
-      <td>145.142857</td>
-      <td>217.142857</td>
-      <td>265.714286</td>
-      <td>291.428571</td>
-      <td>302.857143</td>
-      <td>302.031429</td>
-      <td>309.585714</td>
-      <td>309.165714</td>
-      <td>306.922857</td>
-    </tr>
-    <tr>
-      <th>World</th>
-      <td>24.120006</td>
-      <td>26.713726</td>
-      <td>29.599809</td>
-      <td>32.474875</td>
-      <td>35.439447</td>
-      <td>38.675155</td>
-      <td>42.057352</td>
-      <td>45.266395</td>
-      <td>48.360071</td>
-      <td>51.452805</td>
-    </tr>
-    <tr>
-      <th>Yemen, Rep.</th>
-      <td>10.112857</td>
-      <td>11.037034</td>
-      <td>12.066214</td>
-      <td>13.688060</td>
-      <td>16.474997</td>
-      <td>19.968182</td>
-      <td>25.086658</td>
-      <td>30.967307</td>
-      <td>35.668877</td>
-      <td>41.102913</td>
-    </tr>
-    <tr>
-      <th>Zambia</th>
-      <td>4.359305</td>
-      <td>5.102119</td>
-      <td>6.032017</td>
-      <td>7.188084</td>
-      <td>8.545395</td>
-      <td>10.047579</td>
-      <td>11.537668</td>
-      <td>13.134078</td>
-      <td>14.985375</td>
-      <td>17.135926</td>
-    </tr>
-    <tr>
-      <th>Zimbabwe</th>
-      <td>10.356112</td>
-      <td>12.197524</td>
-      <td>14.406907</td>
-      <td>17.011087</td>
-      <td>20.360383</td>
-      <td>24.649495</td>
-      <td>28.485762</td>
-      <td>31.174507</td>
-      <td>32.807111</td>
-      <td>34.374559</td>
-    </tr>
-  </tbody>
-</table>
-<p>252 rows × 10 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pop_dns</span> <span class="o">=</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span> <span class="c1">#format float decimals for readability</span>
+<span class="n">pop_dns</span> <span class="o">=</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># format float decimals for readability</span>
 
 <span class="n">Years</span> <span class="o">=</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">columns</span>
 <span class="n">density</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">Years</span><span class="p">:</span>
-  <span class="n">density</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span> <span class="c1">#select maximum population density from each year and the associated countries</span>
+  <span class="c1"># select maximum population density from each year and the associated countries</span>
+  <span class="n">density</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pop_dns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">pop_dns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span>
 
-<span class="n">density</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;pop density&quot;</span><span class="p">,</span><span class="s2">&quot;country&quot;</span><span class="p">))</span> <span class="c1">#make a dataframe from the list</span>
+<span class="c1"># make a dataframe from the list</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">density</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;pop density&quot;</span><span class="p">,</span> <span class="s2">&quot;country&quot;</span><span class="p">))</span>
 <span class="n">density</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
 <span class="n">density</span>
 </pre></div>
@@ -15912,7 +15483,9 @@ Perform a graphical plot of the results</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">density</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Visualize density for the top countries</span>
+<span class="n">pltly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">density</span><span class="p">,</span>
                <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pop density&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">density</span><span class="p">[</span><span class="s2">&quot;country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
                <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Country with highest Population density across years&quot;</span>
                <span class="p">)</span>
@@ -15937,7 +15510,61 @@ Perform a graphical plot of the results</p>
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.4.2.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+</div>
 
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>                            <div id="f7fd4585-124f-4ba7-8e52-92729a1a17a0" class="plotly-graph-div" style="height:700px; width:800px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f7fd4585-124f-4ba7-8e52-92729a1a17a0")) {                    Plotly.newPlot(                        "f7fd4585-124f-4ba7-8e52-92729a1a17a0",                        [{"alignmentgroup":"True","hovertemplate":"color=['Monaco']<br>year=%{x}<br>pop density=%{y}<extra></extra>","legendgroup":"['Monaco']","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"['Monaco']","offsetgroup":"['Monaco']","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":[1962,1967,1977,1982,2007],"xaxis":"x","y":[11521.0,11648.5,12904.5,13814.5,17523.0],"yaxis":"y"},{"alignmentgroup":"True","hovertemplate":"color=['Macao SAR, China']<br>year=%{x}<br>pop density=%{y}<extra></extra>","legendgroup":"['Macao SAR, China']","marker":{"color":"#EF553B","pattern":{"shape":""}},"name":"['Macao SAR, China']","offsetgroup":"['Macao SAR, China']","orientation":"v","showlegend":true,"textposition":"auto","type":"bar","x":[1972,1987,1992,1997,2002],"xaxis":"x","y":[12714.1,16132.75,18889.95,20601.55,16451.037037],"yaxis":"y"}],                        {"barmode":"relative","height":700,"legend":{"title":{"text":"color"},"tracegroupgap":0},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Country with highest Population density across years"},"width":800,"xaxis":{"anchor":"y","categoryorder":"total ascending","domain":[0.0,1.0],"title":{"text":"year"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"pop density"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('f7fd4585-124f-4ba7-8e52-92729a1a17a0');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
 
 </div>
 
@@ -15948,7 +15575,7 @@ Perform a graphical plot of the results</p>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Monaco and Macao SAR China are the two countries with leading 'Population density (people per sq. km of land area)' in each Year</p>
+<p><strong>Monaco</strong> and <strong>Macao SAR China</strong> are the two countries with leading 'Population density (people per sq. km of land area)' in each Year</p>
 
 </div>
 </div>
@@ -16078,6 +15705,7 @@ The plot below shows top 5 countries with increase in Life expectancy</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Graphical display </span>
+<span class="n">pltly</span><span class="o">.</span><span class="n">offline</span><span class="o">.</span><span class="n">init_notebook_mode</span><span class="p">(</span><span class="n">connected</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">pltx</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">increase_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
                <span class="n">x</span><span class="o">=</span><span class="s2">&quot;difference&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">,</span>
                <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Top 5 countries with highest increase in Life expectancy&quot;</span><span class="p">,</span>
@@ -16104,7 +15732,61 @@ The plot below shows top 5 countries with increase in Life expectancy</p>
 
 
 
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        if (typeof require !== 'undefined') {
+        require.undef("plotly");
+        requirejs.config({
+            paths: {
+                'plotly': ['https://cdn.plot.ly/plotly-2.4.2.min']
+            }
+        });
+        require(['plotly'], function(Plotly) {
+            window._Plotly = Plotly;
+        });
+        }
+        </script>
+        
+</div>
 
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<div>                            <div id="43ac7b12-cff4-482a-90fa-8e4b6cf68ddb" class="plotly-graph-div" style="height:400px; width:800px;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("43ac7b12-cff4-482a-90fa-8e4b6cf68ddb")) {                    Plotly.newPlot(                        "43ac7b12-cff4-482a-90fa-8e4b6cf68ddb",                        [{"alignmentgroup":"True","hovertemplate":"difference=%{x}<br>country=%{y}<extra></extra>","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","offsetgroup":"","orientation":"h","showlegend":false,"textposition":"auto","type":"bar","x":[36.916,33.199,31.085,30.861,30.823],"xaxis":"x","y":["Maldives","Bhutan","Timor-Leste","Tunisia","Oman"],"yaxis":"y"}],                        {"barmode":"relative","height":400,"legend":{"tracegroupgap":0},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Top 5 countries with highest increase in Life expectancy"},"width":800,"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Life expectancy increase"}},"yaxis":{"anchor":"x","categoryorder":"total ascending","domain":[0.0,1.0],"title":{"text":"country"}}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('43ac7b12-cff4-482a-90fa-8e4b6cf68ddb');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
 
 </div>
 
