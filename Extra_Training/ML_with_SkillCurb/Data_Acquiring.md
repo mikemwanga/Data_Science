@@ -17,7 +17,7 @@ Challenges in Data collection
 5. Procuring data
 6. Data permissions - ethical considerations
 
-Data sources include, google dataset, kaggle, .gov datasets, fivethirtyright etc
+Data sources include, google dataset, kaggle, .gov datasets, fivethirtyeight etc
 
 Data preparation steps as below
 
@@ -30,13 +30,13 @@ Data formats include, csv, xlxs, txt, json etc.
 Skill to explore and gain insights of the datasets. Get an idea for the processing the data and hypothesis. This might require
 help of statistical tools in python. 
 Identify 'predictor' and 'target' variables in the dataset. What data types ad which category for each data type.
-![features]()
+![features](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/features.png)
 
 Analyse univariate values on the data. Understand the spread of the variable and the ranges. How many males and how many females?
-![univariate]()
+
 
 Perform bivariate analysis by checking relationships, correlation, association, dissociation
-![bivariate]()
+![bivariate](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/bivarate.png)
 
 Check presence of missing values and outliers.
 
@@ -45,11 +45,11 @@ Check presence of missing values and outliers.
 Multiple plots can be used to have a Visualisation of the datasets. Plotyl, ggplot2, matplotlib, seaborn, pandas,
 
 ## Data Cleaning
-![data_cleaning]()
+![data_cleaning](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/data_cleaning.png)
 
 Important to identify missing values.
 
-![missing_values]
+![missing_values](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/missing_values.png)
 
 Boxplots and histograms and scatterplots can be used to visually inspect outliers.
 
