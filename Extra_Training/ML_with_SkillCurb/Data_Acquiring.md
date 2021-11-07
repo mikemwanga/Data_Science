@@ -21,7 +21,7 @@ Data sources include, google dataset, kaggle, .gov datasets, fivethirtyeight etc
 
 Data preparation steps as below
 
-![data_preparation]()
+![data_preparation](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/data_preparation.png)
 
 Data formats include, csv, xlxs, txt, json etc.
 
