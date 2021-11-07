@@ -1,5 +1,5 @@
-# training-requirements
-Training requirements for joining projects
+# Python and Machine Learning
+
 My forte to learn and expertise in python and machine learning has led me here.
 
 The Python for Data Science exercise explores multiple python libraries including pandas, matplotlib, plotly
