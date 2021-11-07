@@ -44,8 +44,9 @@ E.g recommender system in Youtube or Netflix.
 	customers based on shopping behaviour
 	
 
-#### Reinforcement learning - the computer learns on its own from the data based on Trial and error, example learning to walk. Learn to crawl, stand still then make steps.
-[R_learning_](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Reinforcement_learning.png)
+#### Reinforcement learning 
+The computer learns on its own from the data based on Trial and error, example learning to walk. Learn to crawl, stand still then make steps.
+![R_learning_](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Reinforcement_learning.png)
 	
 Types
 1. **Positive Reinforcement** - promotes behaviour by rewarding
@@ -56,7 +57,7 @@ Examples; GPS, Robotics
 #### Artificial Neural Network (ANN)
 Type of machine learning that simulates natural human biological process. eg how the brain functions.
 	
-[ANN](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/ANN.png)
+![ANN](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/ANN.png) <br>
 e.g handwriting recognition, image compression, travel salesman problem, text to speech, stock exchange prediction
 	
 	
@@ -76,7 +77,7 @@ resemble cat will be categorised based on their similarities.
 
 #### Decision Tree
 Makes use of decision tree. e.g whether a coin returns a head or tail. 
-[Decision_tree](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Decision_Tree.png)
+![Decision_tree](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Decision_Tree.png)
 
 	
 ### Types of ML Models - Supervised ML
@@ -87,7 +88,7 @@ Classifiies based on means of data points. Degree to belonging to a cluster is b
 	
 ### Types of ML Models - Reinforcement learning
 #### Q-learning
-[image](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Q_Learning.png)
+![image](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/Q_Learning.png)
 	
 	
 	
