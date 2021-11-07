@@ -50,3 +50,11 @@ Multiple plots can be used to have a Visualisation of the datasets. Plotyl, ggpl
 Important to identify missing values.
 
 ![missing_values]
+
+Boxplots and histograms and scatterplots can be used to visually inspect outliers.
+
+
+
+
+
+
