@@ -8,3 +8,4 @@ Coding done in Jupyter notebook.
 2. [Data Acquiring and preparation](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Data_Acquiring.md)
 3. [Exploratory analysis](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Exploratory_Analysis.ipynb)
 4. [Selecting model](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/selecting_model.md)
+5. [Model selection and Training](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/model_selection_training.ipynb)
