@@ -1,4 +1,4 @@
-# Exploratory Data Analysis
+# Exploratory Data Analysis (EDA)
 
 ## Data Acquisition
 This is finding data for machine learning
@@ -20,19 +20,13 @@ Challenges in Data collection
 Data sources include, google dataset, kaggle, .gov datasets, fivethirtyeight etc
 
 Data preparation steps as below
-
 ![data_preparation](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/data_preparation.png)
 
 Data formats include, csv, xlxs, txt, json etc.
-
 ## Exploratory Data Analysis (EDA)
 
-Skill to explore and gain insights of the datasets. Get an idea for the processing the data and hypothesis. This might require
-help of statistical tools in python. 
-Identify 'predictor' and 'target' variables in the dataset. What data types ad which category for each data type.
-![features](https://github.com/mikemwanga/training-requirements/blob/main/Extra_Training/ML_with_SkillCurb/Images/features.png)
-
-Analyse univariate values on the data. Understand the spread of the variable and the ranges. How many males and how many females?
+Skill to explore and gain insights of the datasets. Get an idea about your data and formulate a hypothesis. This might require
+help of statistical tools in python. Identify *predictor* and *target* variables in the dataset. What data types ad which category for each data type. Analyse univariate values on the data. Understand the spread of the variable and the ranges. e.g how many males and how many females?
 
 
 Perform bivariate analysis by checking relationships, correlation, association, dissociation
