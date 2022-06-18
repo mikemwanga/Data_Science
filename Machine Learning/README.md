@@ -12,3 +12,6 @@ Supervised machine learning is a field of data science concerned with training p
 5. Refine the model until you have > 75% accuracy. Then, share your notebook on Kaggle with Henry (username is "millerh1").
 
 DataCamp (https://learn.datacamp.com/) has an excellent courses on supervised machine learning in both R and python.
+
+
+## Logistic Regression
